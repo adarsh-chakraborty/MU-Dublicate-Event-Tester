@@ -1,7 +1,11 @@
 const fs = require("fs");
 let dublicateEvents = 0;
 
+const baseURL = require("../environment/environment").baseURL;
+
+
 async function getPastEvents() {
+	console.log("Environment", baseURL);
 	const upcomingEventSet = new Set();
 	const allEvents = [];
 
@@ -11,7 +15,7 @@ async function getPastEvents() {
 	while (currentPage <= totalPages) {
 		console.log("Sending request for page: ", currentPage);
 		const response = await fetch(
-			`http://localhost:32000/api/getUpcomingEventsMastersunion?page=${currentPage}&eLoc=Online`
+			`${baseURL}/getUpcomingEventsMastersunion?page=${currentPage}&eLoc=Online`
 		);
 		const responseData = await response.json();
 

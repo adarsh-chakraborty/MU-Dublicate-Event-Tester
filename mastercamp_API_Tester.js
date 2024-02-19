@@ -1,9 +1,13 @@
 const fs = require("fs");
 let dublicateEvents = 0;
 
+const baseURL = require("./environment/environment").baseURL;
+
+
 async function getAllEvents() {
 	const pastEventsSet = new Set();
 	const allEvents = [];
+	console.log("Environment", baseURL);
 
 	let currentPage = 1;
 	let totalPages = Infinity;
@@ -11,7 +15,7 @@ async function getAllEvents() {
 	while (currentPage <= totalPages) {
 		console.log("Sending request for page: ", currentPage);
 		const response = await fetch(
-			`http://localhost:32000/api/getAllEventsMasterCamps?page=${currentPage}`
+			`${baseURL}/api/getAllEventsMasterCamps?page=${currentPage}`
 		);
 		const responseData = await response.json();
 

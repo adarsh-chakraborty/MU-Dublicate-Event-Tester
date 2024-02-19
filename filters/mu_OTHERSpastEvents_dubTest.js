@@ -1,7 +1,10 @@
 const fs = require("fs");
 let dublicateEvents = 0;
+const baseURL = require("../environment/environment").baseURL;
 
 async function getPastEvents() {
+	console.log("Environment", baseURL);
+
 	const pastEventSet = new Set();
 	const allEvents = [];
 
@@ -11,7 +14,7 @@ async function getPastEvents() {
 	while (currentPage <= totalPages) {
 		console.log("Sending request for page: ", currentPage);
 		const response = await fetch(
-			`http://localhost:32000/api/getPastEventsMastersunion?page=${currentPage}&eType=OTHERS`
+			`${baseURL}/getPastEventsMastersunion?page=${currentPage}&eType=OTHERS`
 		);
 		const responseData = await response.json();
 
