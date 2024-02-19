@@ -57,7 +57,7 @@ getPastEvents()
 		console.log("Dublicate Events: ", dublicateEvents);
 		fs.writeFileSync(
 			"./json/mu_WebinarsPastEvents_dubTest.json",
-			JSON.stringify(allEvents)
+			JSON.stringify(allEvents, null, 4)
 		);
 	})
 	.catch((error) => {

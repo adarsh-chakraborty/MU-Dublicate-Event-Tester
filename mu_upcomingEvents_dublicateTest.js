@@ -55,7 +55,7 @@ getPastEvents()
 	.then((allEvents) => {
 		console.log("Total Events: ", allEvents.length);
 		console.log("Dublicate Events: ", dublicateEvents);
-		fs.writeFileSync("./json/mupastevents.json", JSON.stringify(allEvents));
+		fs.writeFileSync("./json/mupastevents.json", JSON.stringify(allEvents, null, 4));
 	})
 	.catch((error) => {
 		console.error("Error:", error);

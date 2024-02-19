@@ -53,7 +53,7 @@ getAllEvents()
 		console.log("Dublicate Events: ", dublicateEvents);
 		fs.writeFileSync(
 			"./json/mastercamp_API_Tester.json",
-			JSON.stringify(allEvents)
+			JSON.stringify(allEvents, null, 4)
 		);
 	})
 	.catch((error) => {
