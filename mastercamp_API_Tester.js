@@ -15,7 +15,7 @@ async function getAllEvents() {
 	while (currentPage <= totalPages) {
 		console.log("Sending request for page: ", currentPage);
 		const response = await fetch(
-			`${baseURL}/api/getAllEventsMasterCamps?page=${currentPage}`
+			`${baseURL}/getAllEventsMasterCamps?page=${currentPage}`
 		);
 		const responseData = await response.json();
 

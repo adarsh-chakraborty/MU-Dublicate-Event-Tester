@@ -14,7 +14,7 @@ async function getPastEvents() {
 	while (currentPage <= totalPages) {
 		console.log("Sending request for page: ", currentPage);
 		const response = await fetch(
-			`${baseURL}/api/getPastEventsMastersunion?page=${currentPage}`
+			`${baseURL}/getPastEventsMastersunion?page=${currentPage}`
 		);
 		const responseData = await response.json();
 
